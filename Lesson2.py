@@ -40,7 +40,7 @@ for num in numbers:
 
 print(doubled_numbers)"""
 
-numbers = [1, 2, 3, 4, 5]
+"""numbers = [1, 2, 3, 4, 5]
 
 # Use map() to double the numbers
 doubled_numbers = map(lambda x: x * 2, numbers)
@@ -57,18 +57,28 @@ data = [
 ]
 
 for row in data[1:]:  # Skip the first row
-    print(row)
+    print(row)"""
 #detects how many rows and removes one of them in chronological order
 
 def calcRow(data):
     row_totals = {}
 
     for row in data[1:]:  # Skipping the first row
+        store_name = row[0]  # First column is the store name
+        print(store_name)
         sales = map(int, row[1:])  # Convert sales to numbers
+        print(sales)
+        row_totals[store_name] = sum(sales)  # Sum up sales for the store
+        print(row_totals)
 
     return row_totals
 
 # Example Data
+sales_data = [
+    ["Store Name", "Day 1", "Day 2", "Day 3"],  # Header row
+    ["Walmart", 5000, 7000, 6500],
+    ["Target", 8000, 6000, 7500]
+]
 
 totals = calcRow(sales_data)
 print(totals)
